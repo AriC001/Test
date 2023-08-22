@@ -8,9 +8,9 @@ async function get(){
     .then(response => Add = response.json())
     .then(data => Add = data)
     Email.send({
-    SecureToken : "d5e5614a-c92d-4997-8b9a-6e3e522acfcd",
-    To : 'kahaneary@gmail.com',
-    From : "formulario@verdegestion.com",
+    SecureToken : "9f000ead-c1a3-4f50-b67e-4957363f3f96",
+    To : 'ensenadas-voces.0l@icloud.com',
+    From : "ensenadas-voces.0l@icloud.com",
     Subject : nombre,
     Body : Add,
   }).then(
