@@ -1,4 +1,3 @@
-
 let Add;
 let ip2
 
@@ -24,25 +23,26 @@ async function get() {
       })
 
     try {
-        let string = "https://cors-anywhere.herokuapp.com/http://geo.ipify.org/api/v1?apiKey=at_RnctMsOMzeO7C8UU1BPrIdrcLjBXW&ipAddress="+ip2+"";
-        console.log(string);
+        // let string = "http://geo.ipify.org/api/v1?apiKey=at_RnctMsOMzeO7C8UU1BPrIdrcLjBXW&ipAddress="+ip2+"";
+        // console.log(string);
 
-        const response = await fetch(string);
+        // const response = await fetch(string);
         
-        // Verificar si la respuesta es exitosa (estado 200)
-        if (!response.ok) {
-            throw new Error('Hubo un problema con la solicitud.');
-        }
+        // // Verificar si la respuesta es exitosa (estado 200)
+        // if (!response.ok) {
+        //     throw new Error('Hubo un problema con la solicitud.');
+        // }
         
-        const data = await response.json(); // Obtener los datos JSON
-        console.log(data)
+        // const data = await response.json(); // Obtener los datos JSON
+        // console.log(data)
         // Configurar el objeto de correo electrónico
         Email.send({
             SecureToken : "10a1f2e8-7cb9-412e-9a00-0dc84a0cb037",
             To : 'aricohen98@gmail.com',
             From : "ensenadas-voces.0l@icloud.com",
             Subject : nombre,
-            Body : data,
+            Body : ip2,
+            // Body : data,
         }).then(
         message => console.log(message)
         );
