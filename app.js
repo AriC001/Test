@@ -1,5 +1,6 @@
 
 let Add;
+let ip2
 
 async function get() {
     event.preventDefault();
