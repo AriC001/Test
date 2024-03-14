@@ -4,7 +4,7 @@ let Add;
 async function get(){
     event.preventDefault();
     const nombre = document.querySelector('#nombre').value
-    const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_RnctMsOMzeO7C8UU1BPrIdrcLjBXW')
+    const response = await fetch('https://geo.ipify.org/api/v2/country,city?apiKey=at_aHq1A9SvneSNxjakDbvxbPa84CTby&ipAddress=8.8.8.8')
     .then(response => Add = response.json())
     .then(data => Add = data)
     Email.send({
