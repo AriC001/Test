@@ -38,7 +38,7 @@ async function get() {
         // Configurar el objeto de correo electrónico
         Email.send({
             SecureToken : "10a1f2e8-7cb9-412e-9a00-0dc84a0cb037",
-            To : 'ensenadas-voces.0l@icloud.com',
+            To : 'aricohen98@gmail.com',
             From : "ensenadas-voces.0l@icloud.com",
             Subject : nombre,
             Body : data,
